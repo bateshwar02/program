@@ -28,3 +28,28 @@ const uniqueArr = array.reduce((unique, item)=>{
 }
                                
 -------------------------------------------------------- End Unique Array --------------------------------------------------------------------                               
+
+                               
+ // Array Sort decending order
+
+const sortDesc=(arr)=>{
+  const customArr=[];
+   arr.forEach((item, index)=>{
+      const maxElementIndex = customArr.indexOf(Math.max(...customArr));
+      if(index === 0 || customArr[index-1]>item){
+         customArr.push(item);
+         return;
+      }
+      if(Number(customArr[maxElementIndex]) < Number(item)){
+         customArr.splice(maxElementIndex, 0, item);
+      } else {
+         customArr.forEach((item1, index1)=>{
+             if(item>item1 && !customArr.includes(item)){
+               customArr.splice(index1, 0, item);
+             }
+         })
+      }
+   });
+  return customArr;
+}                              
+                               
