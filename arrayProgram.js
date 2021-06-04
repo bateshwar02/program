@@ -53,3 +53,38 @@ const sortDesc=(arr)=>{
   return customArr;
 }                              
                                
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+function rearrange(input){
+
+  const dataArr = input.split('');
+  const customArr = [];
+  let expression = new RegExp('[A-Za-z0-9]');
+  
+  dataArr.forEach((item, index)=>{
+      
+     if(!expression.test(item)){
+       customArr.splice(index, 0, item)
+       return;
+     } 
+     
+     if(!expression.test(dataArr[dataArr.length - (index+1)])){
+       customArr.splice((dataArr.length - (index+1)), 0, item)
+       return
+     }
+     customArr.push(dataArr[dataArr.length - (index+1)])
+  })
+  
+  return customArr.join("");
+}
+
+
+console.log(rearrange("$abc&fds*"))  
+//$sdf&cba*
+
+//expected output = "$sdf&cba*"
+
+
+console.log(rearrange("*bcd$db&$sd"))
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------
