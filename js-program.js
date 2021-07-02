@@ -17,3 +17,29 @@ for (let i = 1; i <= number1 && i <= number2; i++) {
 // display the hcf
 console.log(`HCF of ${number1} and ${number2} is ${hcf}.`);
 
+
+
+// charector with frequeency 
+
+const charWithFreq3=(str)=>{
+
+   const arr = str.split('');
+   const custObj={};
+   const custArr=[];
+   arr.forEach((item, index)=>{
+       if(index === 0 || custObj[item] === undefined){
+           custObj[item]=1;
+           return;
+       }
+     
+       custObj[item]=custObj[item]+1;
+   
+  })
+
+  Object.keys(custObj).forEach(item=>{
+
+    custArr.push(`${item}${custObj[item]}`);
+  })
+  
+console.log('custArr ==============', custArr.join(" "));
+}
