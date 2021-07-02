@@ -43,3 +43,36 @@ const charWithFreq3=(str)=>{
   
 console.log('custArr ==============', custArr.join(" "));
 }
+
+
+
+// majority element of index
+
+const maxElementFrequency=(arr, n)=>{
+
+   const custObj={};
+   arr.forEach((item, index)=>{
+       if(index === 0 || custObj[item] === undefined){
+           custObj[item]=1;
+           return;
+       }
+     
+       custObj[item]=custObj[item]+1;
+   
+  })
+
+  const custArr = Object.values(custObj);
+  const maxValue = Math.max(...custArr);
+
+  Object.keys(custObj).forEach(item=>{
+       if(maxValue === custObj[item]){
+         if(custObj[item]> n/2){
+               console.log(item);
+            } else{
+               console.log("No Majority Element");
+            }
+       }
+       
+  })
+  
+}
